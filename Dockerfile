@@ -11,9 +11,9 @@ RUN apk update \
 
 COPY ./manifest/ /
 
-RUN curl -Lo v0.5.6.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.5.6.tar.gz \
- && tar --strip-components=1 -xzvf v0.5.6.tar.gz \
- && rm v0.5.6.tar.gz \
+RUN curl -Lo v0.5.7.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.5.7.tar.gz \
+ && tar --strip-components=1 -xzvf v0.5.7.tar.gz \
+ && rm v0.5.7.tar.gz \
  && chown -R caddy:caddy * \
  && chmod -R 777 storage/* bootstrap/cache \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
