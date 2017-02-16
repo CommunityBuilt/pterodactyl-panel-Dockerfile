@@ -13,7 +13,7 @@ COPY ./manifest/ /
 
 RUN curl -Lo v0.6.0-pre.1.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0-pre.1.tar.gz \
  && tar --strip-components=1 -xzvf v0.6.0-pre.1.tar.gz \
- && rm v0.6.0-pre.1 \
+ && rm v0.6.0-pre.1.tar.gz \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
  && composer install --ansi --no-dev \
  && chown -R caddy:caddy * \
