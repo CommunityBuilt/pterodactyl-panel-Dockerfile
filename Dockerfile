@@ -11,13 +11,13 @@ RUN apk update \
 
 COPY ./manifest/ /
 
-RUN curl -Lo v0.5.6.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.5.6.tar.gz \
- && tar --strip-components=1 -xzvf v0.5.6.tar.gz \
- && rm v0.5.6.tar.gz \
- && chown -R caddy:caddy * \
- && chmod -R 777 storage/* bootstrap/cache \
+RUN curl -Lo v0.6.0-pre.1.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0-pre.1.tar.gz \
+ && tar --strip-components=1 -xzvf v0.6.0-pre.1.tar.gz \
+ && rm v0.6.0-pre.1 \
  && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
- && composer install --ansi --no-dev
+ && composer install --ansi --no-dev \
+ && chown -R caddy:caddy * \
+ && chmod -R 777 storage/* bootstrap/cache
 
 ENTRYPOINT ["/bin/ash", "/var/www/html/entrypoint.sh"]
 
