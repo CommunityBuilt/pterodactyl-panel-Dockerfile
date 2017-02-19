@@ -21,14 +21,14 @@ if [ "$1" = "/sbin/tini" ]; then
 
     if [ ! -e var/.env ] || [ ! -s var/.env ]; then #Didn't find the .env file
         echo "      Getting ready to start. Waiting 15 seconds for mariadb to start if you are using docker compose"
-        sleep 15
+        sleep 30
         echo "      env not found. Copying from example"
         if [ ! -e var/.env ]; then
             touch var/.env
         else
             echo "If you see this there was a major problem..."
         fi
-        ln -s var/.env .env
+        ln -fs var/.env .env
         echo "      Generating application key"
         php artisan key:generate
         echo "  Setting up db and email settings"
@@ -66,7 +66,7 @@ if [ "$1" = "/sbin/tini" ]; then
 
     else # Found an env file and testing for panel version
         echo "      Found env file found. continuing start"
-        ln -s var/.env .env
+        ln -fs var/.env .env
     fi
 fi
 
