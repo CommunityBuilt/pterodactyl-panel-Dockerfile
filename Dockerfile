@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-MAINTAINER Michael Parker, <parker@parkervcp.com>
+MAINTAINER ajthemacboy
 
 WORKDIR /var/www/html/
 
