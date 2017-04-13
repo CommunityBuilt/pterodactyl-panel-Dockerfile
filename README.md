@@ -35,7 +35,7 @@ The container requires a database to run as well. I recommend the [mariadb conat
 ```docker run -t -e MYSQL_ROOT_PASSWORD=apassword -e MYSQL_DATABASE=pterodb -e MYSQL_USER=ptero -e MYSQL_PASSWORD=pterodbpass --name pterodb -d mariadb:10```
 The container also requires a ton of env flags and that is why the docker-compose is the recommended way to run the container
 
-```docker run -it -p 80:80 -p 443:443 -v /srv/pterodactyl/.env:/var/www/html/.env --link pterodb -e db_host=pterodb -e db_port=3306 -e db_name=pterodb -e db_user=ptero -e db_pass=pterodbpass -e panel_url= -e timezon e="America/New_York" -e email_driver=mail -e panel_email=foo@bar.org --name pterosite quay.io/parkervcp/pterodactyl-panel:latest```
+```docker run -it -p 80:80 -p 443:443 -v /srv/pterodactyl/.env:/var/www/html/.env --link pterodb -e db_host=pterodb -e db_port=3306 -e db_name=pterodb -e db_user=ptero -e db_pass=pterodbpass -e panel_url= -e timezone="America/New_York" -e email_driver=mail -e panel_email=foo@bar.org --name pterosite quay.io/parkervcp/pterodactyl-panel:latest```
 The full list of supported env flags are:  
 #####DB settings
 db_host="hostname"  
