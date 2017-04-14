@@ -13,7 +13,7 @@ COPY ./manifest/ /
 
 RUN curl -Lo panel.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0-pre.7.tar.gz \
  && tar --strip-components=1 -xzvf panel.tar.gz \
- && sed -ie "s/env('CACHE_DRIVER', 'memcached')/env('CACHE_DRIVER', 'file')/g" config/cache.php \
+ && sed -ie "s/env('CACHE_DRIVER', 'memcached')/env('CACHE_DRIVER', 'array')/g" config/cache.php \
  && rm panel.tar.gz \
  && chown -R caddy:caddy * \
  && chmod -R 777 storage/* bootstrap/cache \
