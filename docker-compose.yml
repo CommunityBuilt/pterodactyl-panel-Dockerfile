@@ -16,7 +16,7 @@ services:
   
   Panel:
     hostname: Panel
-    image: quay.io/ajthemacboy/pterodactyl-panel:latest
+    image: quay.io/kasperfranz/pterodactyl-panel:latest
     ports:
       - "80:80"
       - "443:443"
