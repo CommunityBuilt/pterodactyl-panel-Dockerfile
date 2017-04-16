@@ -64,7 +64,7 @@ admin_pass="admin password"
 admin_stat=1 (should stay 1 to set user as admin)
 
 ## Support & Documentation
-Support for using Pterodactyl can be found on our [wiki](https://github.com/Pterodactyl/Panel/wiki) or on the [Discord chat](https://discord.gg/QRDZvVm).
+Support for using Pterodactyl can be found on our [Documentation](https://docs.pterodactyl.io/docs) or on the [Discord chat](https://discord.gg/QRDZvVm).
 
 ### Credits
 A huge thanks to [pterodactyl](https://github.com/Pterodactyl/Panel) .
