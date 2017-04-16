@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-MAINTAINER ajthemacboy
+MAINTAINER KasperFranz, <kasper@franz.guru>
 
 WORKDIR /var/www/html/
 
