@@ -25,7 +25,7 @@ services:
     links:
       - database
     volumes:
-      - "/srv/pterodactyl/.env:/var/www/html/.env"
+      - "/srv/pterodactyl/var/:/var/www/html/var/"
       - "/srv/pterodactyl/certs/:/root/.caddy/"
     environment:
       - "db_host=database"
