@@ -66,9 +66,6 @@ if [ "$1" = "/sbin/tini" ]; then
     else # Found an env file and testing for panel version
         echo "      Found env file found. continuing start"
     fi
-
-    echo "      Migrating Database"
-    php artisan migrate --force
 fi
 
 /usr/sbin/crond
