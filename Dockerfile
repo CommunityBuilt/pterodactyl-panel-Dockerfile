@@ -4,6 +4,9 @@ MAINTAINER KasperFranz, <kasper@franz.guru>
 
 WORKDIR /var/www/html/
 
+ADD crontab /crontab
+RUN /usr/bin/crontab /crontab
+
 RUN apk update \
  && apk add  openssl-dev php7 php7-bcmath php7-common php7-dom php7-fpm php7-gd php7-mbstring php7-openssl php7-pdo php7-phar php7-json php7-pdo_mysql php7-session php7-ctype curl tar tini caddy \
  && mv /usr/bin/php7 /usr/bin/php \
