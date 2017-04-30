@@ -65,7 +65,6 @@ if [ "$1" = "/sbin/tini" ]; then
 
     else # Found an env file and testing for panel version
         echo "      Found env file found. continuing start"
-        ln -fs var/.env .env
     fi
 
     echo "      Migrating Database"
