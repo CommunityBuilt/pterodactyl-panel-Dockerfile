@@ -1,8 +1,6 @@
 #!/bin/ash
 set -e
 
-/usr/sbin/crond -f -L 8
-
 if [ "$1" = "/sbin/tini" ]; then
 
     echo "container initializing"
@@ -71,5 +69,7 @@ if [ "$1" = "/sbin/tini" ]; then
         ln -fs var/.env .env
     fi
 fi
+
+/usr/sbin/crond
 
 exec "$@"
