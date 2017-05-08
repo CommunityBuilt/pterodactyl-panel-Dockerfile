@@ -14,7 +14,7 @@ RUN apk update \
 
 COPY ./manifest/ /
 
-RUN curl -Lo panel.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.0-beta.2.1.tar.gz \
+RUN curl -Lo panel.tar.gz https://github.com/Pterodactyl/Panel/releases/download/v0.6.0/Panel-0.6.0.tar.gz \
  && tar --strip-components=1 -xzvf panel.tar.gz \
  && sed -ie "s/env('CACHE_DRIVER', 'memcached')/env('CACHE_DRIVER', 'array')/g" config/cache.php \
  && rm panel.tar.gz \
