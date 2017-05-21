@@ -70,7 +70,4 @@ if [ "$1" = "/sbin/tini" ]; then
     fi
 fi
 
-
-/usr/sbin/crond
-
 exec "$@"
