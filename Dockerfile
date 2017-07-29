@@ -12,7 +12,7 @@ ENV SUPERVISOR_VERSION=3.3.1
 
 
 RUN apk update \
- && apk add  openssl-dev php7 php7-bcmath	php7-tokenizer  php7-common php7-zip php7-dom php7-fpm php7-gd php7-mbstring php7-openssl php7-pdo php7-phar php7-json php7-pdo_mysql php7-session php7-ctype curl tar tini caddy \
+ && apk add  openssl-dev php7 php7-bcmath	php7-tokenizer  php7-common php7-zip php7-dom php7-fpm php7-gd php7-mbstring php7-openssl php7-pdo php7-phar php7-json php7-pdo_mysql php7-session php7-ctype php7-memcached curl tar tini caddy \
  && apk add  python=$PYTHON_VERSION py-pip=$PY_PIP_VERSION \
  && mv /usr/bin/php7 /usr/bin/php \
  && mv /usr/sbin/php-fpm7 /usr/sbin/php-fpm
