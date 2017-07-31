@@ -62,7 +62,7 @@ if [ "$1" = "/sbin/tini" ]; then
             echo "      Seeding Database"
             php artisan db:seed --force
             echo "      Setting up user"
-            php artisan pterodactyl:user --email=$admin_email --password=$admin_pass --admin=$admin_stat
+            php artisan pterodactyl:user --email=$admin_email --password=$admin_pass  --firstname=$admin_firstname  --lastname=$admin_lastname  --username=$admin_username --admin=$admin_stat
 
     else # Found an env file and testing for panel version
         echo "      Found env file found. continuing start"
