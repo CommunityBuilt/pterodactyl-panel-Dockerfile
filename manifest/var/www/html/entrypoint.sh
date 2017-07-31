@@ -32,7 +32,7 @@ if [ "$1" = "/sbin/tini" ]; then
         echo "      Generating application key"
         php artisan key:generate --force
         echo "  Setting up db and email settings"
-        php artisan pterodactyl:env --driver=$driver --session-driver=$session_driver --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
+        php artisan pterodactyl:env --driver=$driver --session-driver=$session_driver --queue-driver=$queue_driver--dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
         case "$email_driver" in
             mail)
             echo "      PHP Mail was chosen"

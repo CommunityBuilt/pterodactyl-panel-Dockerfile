@@ -47,3 +47,4 @@ services:
       - "ssl=true"
       - "driver=memcached"
       - "session_driver=database"
+      - "queue_driver=database"
