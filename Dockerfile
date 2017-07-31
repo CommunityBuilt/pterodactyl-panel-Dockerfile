@@ -35,5 +35,5 @@ ENTRYPOINT ["/bin/ash", "/var/www/html/entrypoint.sh"]
 
 CMD ["/sbin/tini", "--", "supervisord", "--configuration", "/etc/supervisord.conf"]
 
-EXPOSE 80 443
+EXPOSE 80 443 2015
 

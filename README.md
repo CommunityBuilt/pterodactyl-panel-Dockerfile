@@ -47,7 +47,8 @@ timezone="Panel Timezone in php time"
 
 ##### Email settings
 email_driver="email driver"  
-panel_email="email address for the panel"  
+panel_email="email address for the panel"
+email_from_name="The visible From email in your email client"  
 email_user="email username"  
 email_pass="email password"  
 email_domain="email domain"  
@@ -60,8 +61,17 @@ All settings are required for "smtp"
 
 ##### Admin setup
 admin_email="admin email"  
+admin_firstname="admin firstname"
+admin_lastname="admin lastname"
+admin_username="admin username"
 admin_pass="admin password"  
 admin_stat=1 (should stay 1 to set user as admin)
+
+##### General settings
+ssl="If you want SSL or not on your panel"
+driver="What driver you want (memcached is default)"
+session-driver="What session driver you want (database is default)"
+queue_driver="What queue driver you want (database is default)"
 
 ## Support & Documentation
 Support for using Pterodactyl can be found on our [Documentation](https://docs.pterodactyl.io/docs) or on the [Discord chat](https://discord.gg/QRDZvVm).

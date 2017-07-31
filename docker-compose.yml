@@ -37,7 +37,7 @@ services:
       - "timezone="
       - "email_driver="
       - "panel_email="
-      - "from_name="
+      - "email_from_name="
       - "email_user="
       - "email_pass="
       - "email_domain="
