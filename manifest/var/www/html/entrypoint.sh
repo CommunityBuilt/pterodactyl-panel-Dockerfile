@@ -21,7 +21,7 @@ if [ "$1" = "/sbin/tini" ]; then
 
     if [ ! -e var/.env ] || [ ! -s var/.env ]; then #Didn't find the .env file
         echo "      Getting ready to start. Waiting 15 seconds for mariadb to start if you are using docker compose"
-        sleep 30
+        sleep 15
         echo "      env not found. Copying from example"
         if [ ! -e var/.env ]; then
             touch var/.env
@@ -32,7 +32,7 @@ if [ "$1" = "/sbin/tini" ]; then
         echo "      Generating application key"
         php artisan key:generate --force
         echo "  Setting up db and email settings"
-        php artisan pterodactyl:env --driver=memcached --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
+        php artisan pterodactyl:env --driver=$driver --session-driver=$session_driver --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
         case "$email_driver" in
             mail)
             echo "      PHP Mail was chosen"

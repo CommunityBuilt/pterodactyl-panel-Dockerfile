@@ -45,3 +45,5 @@ services:
       - "admin_pass="
       - "admin_stat=1"
       - "ssl=true"
+      - "driver=memcached"
+      - "session_driver=database"
