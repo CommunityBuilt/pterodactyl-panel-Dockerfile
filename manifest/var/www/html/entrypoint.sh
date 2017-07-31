@@ -30,9 +30,9 @@ if [ "$1" = "/sbin/tini" ]; then
         fi
         ln -fs var/.env .env
         echo "      Generating application key"
-        php artisan key:generate
+        php artisan key:generate --force
         echo "  Setting up db and email settings"
-        php artisan pterodactyl:env --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
+        php artisan pterodactyl:env --driver=memcached --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
         case "$email_driver" in
             mail)
             echo "      PHP Mail was chosen"
