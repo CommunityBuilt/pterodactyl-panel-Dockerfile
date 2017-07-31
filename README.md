@@ -20,7 +20,7 @@ Quay.io Build Status
 
 ## Running the container
 Pull the container  
-`docker pull quay.io/parkervcp/pterodactyl-panel`
+`docker pull quay.io/kasperfranz/pterodactyl-panel`
 
 You can use the docker-compose.yml to run the containers if you want. This will start a mariadb container and link it to the panel. This connection is internal only.  
 You run the containers by running
@@ -28,15 +28,15 @@ You run the containers by running
 
 More info on docker-compose can be found [here](https://docs.docker.com/compose/)
 
-###When you first start the container you need to wait at least 1 minute for it to complete the final setup including the database configuration/seeding, email setup, and user generation.
+### When you first start the container you need to wait at least 1 minute for it to complete the final setup including the database configuration/seeding, email setup, and user generation.
 
-#####If you don't use docker-compose
+##### If you don't use docker-compose
 The container requires a database to run as well. I recommend the [mariadb conatiner](https://hub.docker.com/_/mariadb/) or [alpine mariadb container](https://github.com/bianjp/docker-mariadb-alpine). I start it with a command like this. Modify to your needs.
 `docker run -t -e MYSQL_ROOT_PASSWORD=apassword -e MYSQL_DATABASE=pterodb -e MYSQL_USER=ptero -e MYSQL_PASSWORD=pterodbpass --name pterodb -d mariadb:10`
 The container also requires a ton of env flags and that is why the docker-compose is the recommended way to run the container
 `docker run -it -p 80:80 -p 443:443 -v /srv/pterodactyl/.env:/var/www/html/.env --link pterodb -e db_host=pterodb -e db_port=3306 -e db_name=pterodb -e db_user=ptero -e db_pass=pterodbpass -e panel_url= -e timezone="America/New_York" -e email_driver=mail -e panel_email=foo@bar.org --name pterosite quay.io/kasperfranz/pterodactyl-panel:latest`
 The full list of supported env flags are:  
-#####DB settings
+##### DB settings
 db_host="hostname"  
 db_port="port"  
 db_name="db name"  
@@ -45,7 +45,7 @@ db_pass="db pass"
 panel_url="Panel Url"  
 timezone="Panel Timezone in php time"  
 
-#####Email settings
+##### Email settings
 email_driver="email driver"  
 panel_email="email address for the panel"  
 email_user="email username"  
@@ -58,7 +58,7 @@ driver, email, and username(api key) are used for "mandrill" and "postmark".
 driver, email, username(api key), and domain are required for "mailgun".
 All settings are required for "smtp"
 
-#####Admin setup
+##### Admin setup
 admin_email="admin email"  
 admin_pass="admin password"  
 admin_stat=1 (should stay 1 to set user as admin)

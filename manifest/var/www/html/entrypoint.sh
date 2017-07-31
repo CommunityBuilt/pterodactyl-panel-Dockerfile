@@ -36,22 +36,22 @@ if [ "$1" = "/sbin/tini" ]; then
         case "$email_driver" in
             mail)
             echo "      PHP Mail was chosen"
-            php artisan pterodactyl:mail --driver=$email_driver --email=$panel_email
+            php artisan pterodactyl:mail --from-name=$from_name --driver=$email_driver --email=$panel_email
             ;;
             mandrill)
-            php artisan pterodactyl:mail --driver=$email_driver --email=$panel_email --username=$email_user
+            php artisan pterodactyl:mail --from-name=$from_name --driver=$email_driver --email=$panel_email --username=$email_user
             echo "      Mandrill was chosen"
             ;;
             postmark)
-            php artisan pterodactyl:mail --driver=$email_driver --email=$panel_email --username=$email_user
+            php artisan pterodactyl:mail --from-name=$from_name --driver=$email_driver --email=$panel_email --username=$email_user
             echo "      Postmark was chosen"
             ;;
             mailgun)
-            php artisan pterodactyl:mail --driver=$email_driver --email=$panel_email --username=$email_user --host=$email_domain
+            php artisan pterodactyl:mail --from-name=$from_name --driver=$email_driver --email=$panel_email --username=$email_user --host=$email_domain
             echo "      Mailgun was chosen"
             ;;
             smtp)
-            php artisan pterodactyl:mail --driver=$email_driver --email=$panel_email --username=$email_user --password=$email_pass --host=$email_domain --port=$email_port
+            php artisan pterodactyl:mail --from-name=$from_name --driver=$email_driver --email=$panel_email --username=$email_user --password=$email_pass --host=$email_domain --port=$email_port
             echo "      smtp was chosen"
             ;;
             *)
