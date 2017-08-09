@@ -49,6 +49,7 @@ services:
       - "admin_pass="
       - "admin_stat=1"
       - "ssl=true"
+      - "proxySSL=false"
       - "driver=memcached"
       - "session_driver=database"
       - "queue_driver=database"

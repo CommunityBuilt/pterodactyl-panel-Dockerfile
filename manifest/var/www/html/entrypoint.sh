@@ -7,15 +7,24 @@ if [ "$1" = "/sbin/tini" ]; then
     echo "setting up ssl settings"
     
     if [ "$ssl" == "false" ]; then
+
+	if [ "$proxySSL" == "true" ]; then
+		type='https://'
+	else
+		type='http://'
+	fi 
         echo "disabling ssl support" 
         sed -i "s,https://,http://,g" /etc/caddy/caddy.conf
         sed -i "s,<domain>,$panel_url,g" /etc/caddy/caddy.conf
         sed -i "s,<email>,off,g" /etc/caddy/caddy.conf
     else
+	type='https://'
         echo "configuring ssl support"
         sed -i "s,<domain>,$panel_url,g" /etc/caddy/caddy.conf
         sed -i "s,<email>,$admin_email,g" /etc/caddy/caddy.conf
     fi
+
+   
 
     echo "continuing"
 
@@ -25,14 +34,19 @@ if [ "$1" = "/sbin/tini" ]; then
         echo "      env not found. Copying from example"
         if [ ! -e var/.env ]; then
             touch var/.env
+	    chown caddy:caddy var/.env
         else
             echo "If you see this there was a major problem..."
         fi
         ln -fs var/.env .env
+	chown caddy:caddy .env 
+
+	app_url=$type$panel_url
+
         echo "      Generating application key"
         php artisan key:generate --force
         echo "  Setting up db and email settings"
-        php artisan pterodactyl:env --driver=$driver --session-driver=$session_driver --queue-driver=$queue_driver --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$panel_url --timezone=$timezone
+        php artisan pterodactyl:env --driver=$driver --session-driver=$session_driver --queue-driver=$queue_driver --dbhost=$db_host --dbport=$db_port --dbname=$db_name --dbuser=$db_user --dbpass=$db_pass --url=$app_url --timezone=$timezone
         case "$email_driver" in
             mail)
             echo "      PHP Mail was chosen"
