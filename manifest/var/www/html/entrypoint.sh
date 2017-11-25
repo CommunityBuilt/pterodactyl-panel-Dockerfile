@@ -33,7 +33,7 @@ if [ "$1" = "/sbin/tini" ]; then
         sleep 15
         echo "      env not found. Copying from example"
 	touch .env
-	chown caddy:caddy .env 
+	chown nginx:nginx .env 
 
 	app_url=$type$panel_url
 
