@@ -6,7 +6,7 @@ WORKDIR /var/www/html/
 
 ADD crontab /crontab
 RUN /usr/bin/crontab /crontab
-ENV PYTHON_VERSION=2.7.13-r2
+ENV PYTHON_VERSION=2.7.14-r2
 ENV PY_PIP_VERSION=9.0.1-r1
 ENV SUPERVISOR_VERSION=3.3.1
 
