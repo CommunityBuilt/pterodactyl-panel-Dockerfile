@@ -22,7 +22,7 @@ RUN pip install supervisor==$SUPERVISOR_VERSION
 COPY ./manifest/ /
 
 
-RUN curl -Lo panel.tar.gz https://github.com/Pterodactyl/Panel/archive/v0.6.4.tar.gz \
+RUN curl -Lo panel.tar.gz https://github.com/pterodactyl/panel/releases/download/v0.7.2/panel.tar.gz \
  && tar --strip-components=1 -xzvf panel.tar.gz \
  && sed -ie "s/env('CACHE_DRIVER', 'memcached')/env('CACHE_DRIVER', 'array')/g" config/cache.php \
  && rm panel.tar.gz \
