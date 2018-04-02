@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM php:7.2-fpm-alpine
 
 MAINTAINER KasperFranz, <kasper@franz.guru>
 
@@ -6,15 +6,27 @@ WORKDIR /var/www/html/
 
 ADD crontab /crontab
 RUN /usr/bin/crontab /crontab
-ENV PYTHON_VERSION=2.7.14-r2
+ENV PYTHON_VERSION=2.7.14-r0
 ENV PY_PIP_VERSION=9.0.1-r1
 ENV SUPERVISOR_VERSION=3.3.1
 
 RUN apk update \
- && apk add  openssl-dev php7 php7-bcmath	php7-tokenizer  php7-common php7-zip php7-dom php7-fpm php7-gd php7-mbstring php7-openssl php7-pdo php7-phar php7-json php7-pdo_mysql php7-session php7-ctype php7-memcached curl tar tini caddy \
+ && apk add  openssl-dev curl tar tini caddy \  
+        curl-dev  \
+        libxml2-dev \
  && apk add  python=$PYTHON_VERSION py-pip=$PY_PIP_VERSION \
- && mv /usr/bin/php7 /usr/bin/php \
- && mv /usr/sbin/php-fpm7 /usr/sbin/php-fpm 
+ && docker-php-ext-install \
+        curl \
+        iconv \
+        mbstring \
+        pdo \
+	pdo_mysql \
+        pcntl \
+        tokenizer \
+        xml \
+        zip \
+        bcmath 
+
 
 RUN pip install supervisor==$SUPERVISOR_VERSION
 
