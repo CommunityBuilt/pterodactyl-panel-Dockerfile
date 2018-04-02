@@ -39,9 +39,16 @@ RUN curl -Lo panel.tar.gz https://github.com/pterodactyl/panel/releases/download
  && sed -ie "s/env('CACHE_DRIVER', 'memcached')/env('CACHE_DRIVER', 'array')/g" config/cache.php \
  && rm panel.tar.gz \
  && chmod -R 777 storage/* bootstrap/cache \
- && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
- && composer install --ansi --no-dev \
+ && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+RUN cp .env.example .env
+
+RUN  composer install --ansi --no-dev 
+
+RUN composer dump-autoload && php artisan optimize \
  && chown -R caddy:caddy * 
+
 
 
 
